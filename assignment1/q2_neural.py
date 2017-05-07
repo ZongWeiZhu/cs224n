@@ -52,7 +52,8 @@ def forward_backward_prop(data, labels, params, dimensions):
 
     gradW2 = np.dot(hs.T, errors)
     gradb2 = np.sum(errors, axis=0)
-    tmpb1 = sigmoid_grad(hs) * np.dot(errors, W2.T)
+    # you should input the output of sigmoid into sigmoid_grad
+    tmpb1 = sigmoid_grad(hs) * np.dot(errors, W2.T) 
     gradW1 = np.dot(data.T, tmpb1)
     gradb1 = np.sum(tmpb1, axis=0)
     ### END YOUR CODE
